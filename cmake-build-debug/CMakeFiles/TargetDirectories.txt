@@ -1,3 +1,0 @@
-D:/desktop/UCY/EPL232/cmake-build-debug/CMakeFiles/EPL232.dir
-D:/desktop/UCY/EPL232/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/desktop/UCY/EPL232/cmake-build-debug/CMakeFiles/rebuild_cache.dir
