@@ -1,26 +1,27 @@
 #include <stdio.h>
+#define SIZE 20
 
-void readNumbers(int arr[])
+void readNumbers(int* arr)
 {
     FILE *fp = fopen("data.txt", "r");  
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < SIZE; i++)
         fscanf(fp, "%d", &arr[i]);
     fclose(fp);
 }
 
-int largestNumber(int arr[])
+int largestNumber(int* arr)
 {
     int max = arr[0];
-    for (int i = 1; i < 20; i++)
+    for (int i = 1; i < SIZE; i++)
         if (arr[i] > max)
             max = arr[i];
 
     return max;
 }
 
-void printAll(int arr[], int max, char outputFile[])
+void printAll(int* arr, int max, char outputFile[])
 {
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < SIZE; i++)
         printf("%d\n", arr[i]);
 
     FILE *fp = fopen(outputFile, "w");
@@ -30,7 +31,7 @@ void printAll(int arr[], int max, char outputFile[])
 
 int main()
 {
-    int arr[20];
+    int arr[SIZE];
     int largest;
     readNumbers(arr);
     largest = largestNumber(arr);
