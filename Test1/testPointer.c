@@ -2,6 +2,8 @@
 
 int main()
 {
+    int i;
     int* p;
-    printf("%d", p);
+    p = &i;
+    printf("%d", *p);
 }
