@@ -221,17 +221,30 @@ double pow(double x, double y)
 
 double val(const char *cs)
 {
-	int i;
+	int i, negative = 0, foundSign = 0;
 	double value = 0, decimalPlaces = 0;
 	char* decimals = stringstring(cs, ".");
-	printf("%s", decimals);
 	for (i = 1; i < strlength(decimals); i++)
-	{
-		printf("%d", (*(decimals + i) - 48) * pow(10, (-1) * i));
-//		decimalPlaces += (*(decimals + i) - 48) * pow(10, -i);
-	}
-		
-//	printf("%s", decimalPlaces);
+		decimalPlaces += (*(decimals + i) - 48) * pow(10, -i);
+	for (i = 0; i < strlength(cs) - strlength(decimals); i++)
+		if (*(cs + i) == '+')
+		{
+			foundSign = 1;
+			continue;
+		}
+		else if (*(cs + i) == '-')
+		{
+			foundSign = 1;
+			negative = 1;
+		}
+			else if (foundSign == 0)
+				value += (*(cs + i) - 48) * pow(10, i);
+				else
+					value += (*(cs + i) - 48) * pow(10, i - 1);
+	value += decimalPlaces;
+
+	if (negative)
+		value = -value;
 	
 	return value;
 }
