@@ -99,7 +99,7 @@ bool valid(STACK* par)
 			parenthese ++;
 			break;
 		case '(':
-			if (bracket || sqrBracket || parenthese == 0)
+			if (parenthese <= 0)
 				return false;
 			parenthese --;
 			break;
@@ -109,7 +109,7 @@ bool valid(STACK* par)
 			sqrBracket = true;
 			break;
 		case '[':
-			if (bracket || parenthese != 0 || !sqrBracket)
+			if (parenthese != 0 || !sqrBracket)
 				return false;
 			sqrBracket = false;
 			break;
